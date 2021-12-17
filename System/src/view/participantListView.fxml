@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="1048.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ParticipantListController">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label layoutX="373.0" layoutY="43.0" text="Participant list">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+            <TableView fx:id="participantTableView" layoutX="57.0" layoutY="122.0" prefHeight="396.0" prefWidth="639.0">
+               <columns>
+                  <TableColumn fx:id="participantUsername" prefWidth="638.0" text="Participant Username" />
+               </columns>
+            </TableView>
+            <Label layoutX="58.0" layoutY="42.0" text="Your username:" underline="true" />
+            <Label fx:id="usernameLabel" layoutX="177.0" layoutY="42.0" text="usernameLabel" />
+            <Button layoutX="897.0" layoutY="50.0" mnemonicParsing="false" onAction="#onBack" text="BACK">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button layoutX="773.0" layoutY="209.0" mnemonicParsing="false" onAction="#addParticipant" prefHeight="44.0" prefWidth="178.0" text="ADD PARTICIPANT" />
+            <Button layoutX="773.0" layoutY="320.0" mnemonicParsing="false" onAction="#removeParticipant" prefHeight="44.0" prefWidth="178.0" text="REMOVE PARTICIPANT" />
+            <Button layoutX="773.0" layoutY="419.0" mnemonicParsing="false" onAction="#promoteParticipant" prefHeight="59.0" prefWidth="178.0" text="PROMOTE PARTICIPANT TO ADMIM" textAlignment="CENTER" wrapText="true" />
+            <Label layoutX="773.0" layoutY="122.0" text="Insert friend username:" />
+            <TextField fx:id="friendUsername" layoutX="777.0" layoutY="158.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

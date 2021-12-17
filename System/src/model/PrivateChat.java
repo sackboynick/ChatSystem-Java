@@ -1,25 +1,30 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.Collection;
 
 public class PrivateChat extends Chat{
-    private final String sender, receiver;
+    private int id;
+    private final String participant1, participant2;
 
-    public PrivateChat(String sender,String receiver){
-        this.sender=sender;
-        this.receiver=receiver;
+    public PrivateChat(String participant1,String participant2){
+        this.participant1=participant1;
+        this.participant2 = participant2;
     }
 
-    public String getReceiver() {
-        return receiver;
+    public int getId() {
+        return id;
     }
 
-    public String getSender() {
-        return sender;
+    public String getParticipant2() {
+        return participant2;
+    }
+
+    public String getParticipant1() {
+        return participant1;
     }
 
     @Override
-    public ArrayList<Message> getMessages() {
+    public Collection<Message> getMessages() {
         return super.getMessages();
     }
 }

@@ -1,28 +1,44 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class User {
-    private final String username, firstName, lastName, password;
-    private final ArrayList<Friendship> friends;
-    private final ArrayList<Chat> chats;
+    private int id;
+    private final String username, firstname, lastname, password;
+    private final Collection<Friendship> friends;
 
-    public User(String username,String firstName,String lastName,String password,ArrayList<Friendship> friends,ArrayList<Chat> chats){
+    public User(String username,String firstName,String lastName,String password,ArrayList<Friendship> friends){
         this.username=username;
-        this.firstName=firstName;
-        this.lastName=lastName;
+        this.firstname=firstName;
+        this.lastname =lastName;
         this.password=password;
         this.friends=friends;
-        this.chats=chats;
+
     }
 
-    public User(String username,String firstName,String lastName,String password){
+    public User(int id,String username,String firstName,String lastName,String password){
+        this.id=id;
         this.username=username;
-        this.firstName=firstName;
-        this.lastName=lastName;
+        this.firstname=firstName;
+        this.lastname=lastName;
         this.password=password;
         this.friends=new ArrayList<>();
-        this.chats=new ArrayList<>();
+    }
+    public User(String username,String firstName,String lastName,String password){
+        this.username=username;
+        this.firstname=firstName;
+        this.lastname =lastName;
+        this.password=password;
+        this.friends=new ArrayList<>();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -30,25 +46,25 @@ public class User {
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
     public String getLastName() {
-        return lastName;
+        return lastname;
     }
 
     public String getPassword() {
         return password;
     }
 
-    protected ArrayList<Friendship> getFriends(){
+    public Collection<Friendship> getFriends(){
         return friends;
     }
 
-    public void addFriend(String username,boolean closeFriend){
-        this.friends.add(new Friendship(username, closeFriend));
-        this.chats.add(new PrivateChat(this.username,username));
+    public void addFriend(int friendUserId,boolean closeFriend){
+        this.friends.add(new Friendship(this.getId(),friendUserId, closeFriend));
     }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -63,6 +79,6 @@ public class User {
     }
 
     public String toStringFullName(){
-        return toString()+"\nFirst name: "+firstName+"\nLast name: "+lastName;
+        return toString()+"\nFirst name: "+firstname+"\nLast name: "+ lastname;
     }
 }
